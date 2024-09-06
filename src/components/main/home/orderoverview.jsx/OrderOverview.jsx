@@ -201,7 +201,7 @@ export default function OrderOverview() {
       </div>
       <div className=" py-3 flex flex-col w-full ">
         <div className="w-[100%] min-h-[1.6lh] bg-[#f4f9fc] text-[#121212] flex items-center  text-[13px] py-2" >
-          <p className="px-2 shrink-0 w-[5%] whitespace-nowrap">No</p>
+          <p className="px-3 shrink-0 w-[5%] whitespace-nowrap">No</p>
           <p className="px-2 shrink-0 w-[10%] whitespace-nowrap">Invoice No</p>
           <p className="px-2 shrink-0 w-[12%] whitespace-nowrap">Load Type</p>
           <p className="px-2 shrink-0 w-[12%] whitespace-nowrap">Load Quantity</p>
