@@ -2,8 +2,8 @@ import React from "react";
 
 export default function AddOrder() {
   return (
-    <div className="bg-[#f4f9fc] px-3 py-5 rounded-[6px] flex  items-center text-[13px] font-[500]">
-      <div className="w-[80%] flex justify-between items-">
+    <div className="bg-[#f4f9fc] px-3 py-5 rounded-[6px] flex md:flex-row flex-col  md:items-center text-[13px] font-[500]">
+      <div className="w-[80%] flex flex-wrap md:gap-2 gap-4 justify-between items-">
         <div className="w-">
           <div className="flex items-center">
             Volumetric
@@ -49,8 +49,8 @@ export default function AddOrder() {
           <p className="text-[9px] mt-2 text-[#616060]"> </p>
         </div>
       </div>
-      <div className="flex w-[20%] justify-end">
-        <button className="font-[500] text-[13px] px-2 py-1 bg-white  h-full   rounded-[4px]  border-[#d4d4d4] ">
+      <div className="flex md:w-[20%] md:justify-end">
+        <button className="font-[500] text-[13px] px-2 py-1 bg-white  h-full md:w-auto w-fit whitespace-nowrap  rounded-[4px]  border-[#d4d4d4] ">
           Add Order <span className="pl-1 text-[16px]"> +</span>
         </button>
       </div>
