@@ -9,12 +9,12 @@ export default function Home() {
   const { name, setName } = useContext(Context);
   return (
     <div className="  w-full gap-4  flex px-10 my-5">
-      <div className="w-[70vw] ">
+      <div className="w-[70vw] gap-4  flex  flex-col">
         <OrderManage />
         <OrderOverview />
       </div>
       <div className="w-[30vw] ">
-        <SidePanel/>
+        <SidePanel />
       </div>
     </div>
   );
