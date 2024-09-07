@@ -4,11 +4,23 @@ import React, { createContext, useState } from "react";
 const Context = createContext();
 
 const AppProvider = ({ children }) => {
- const [name,setName]=useState('Hello world')
+  const [pickupPopup, setPickupPopup] = useState(false);
+  const [contactPopup, setContactPopup] = useState(false);
+  const [ordersummaryPopup, setOrdersummaryPopup] = useState(false);
+  const [paymentsummaryPopup, setPaymentsummaryPopup] = useState(false);
 
   return (
     <Context.Provider
-      value={{name,setName}}
+      value={{
+        pickupPopup,
+        setPickupPopup,
+        contactPopup,
+        setContactPopup,
+        ordersummaryPopup,
+        setOrdersummaryPopup,
+        paymentsummaryPopup,
+        setPaymentsummaryPopup,
+      }}
     >
       {children}
     </Context.Provider>

@@ -29,20 +29,20 @@ export default function OrderType() {
 
       <div className="py-5 px-3 border-t-[1px] grid grid-cols-6 gap-6">
         <div className="w-full  aspect-[1.2/1] hover:shadow-lg transition-all duration-200 rounded-[4px] border-[1px] border-[#e3eeff] flex flex-col items-center justify-center">
-          <img src={CartonBox} className="h-[50%]" alt="" />
-          <h3 className="mt-2 font-[500]">Sports equipments</h3>
+          <img src={CartonBox} className="h-[40%]" alt="" />
+          <h3 className="mt-3 font-[500]">Sports equipments</h3>
         </div>
         <div className="w-full  aspect-[1.2/1] hover:shadow-lg transition-all duration-200 rounded-[4px] border-[1px] border-[#e3eeff] flex flex-col items-center justify-center">
-          <img src={WoodenBox} className="h-[50%]" alt="" />
-          <h3 className="mt-2 font-[500]">Clothes Items</h3>
+          <img src={WoodenBox} className="h-[40%]" alt="" />
+          <h3 className="mt-3 font-[500]">Clothes Items</h3>
         </div>
         <div className="w-full  aspect-[1.2/1] hover:shadow-lg transition-all duration-200 rounded-[4px] border-[1px] border-[#e3eeff] flex flex-col items-center justify-center">
-          <img src={Plastic} className="h-[50%]" alt="" />
-          <h3 className="mt-2 font-[500]">HouseHold Items</h3>
+          <img src={Plastic} className="h-[40%]" alt="" />
+          <h3 className="mt-3 font-[500]">HouseHold Items</h3>
         </div>
         <div className="w-full  aspect-[1.2/1] hover:shadow-lg transition-all duration-200 rounded-[4px] border-[1px] border-[#e3eeff] flex flex-col items-center justify-center">
-          <img src={Others} className="h-[50%]" alt="" />
-          <h3 className="mt-2 font-[500]">Others</h3>
+          <img src={Others} className="h-[40%]" alt="" />
+          <h3 className="mt-3 font-[500]">Others</h3>
         </div>
       </div>
 
