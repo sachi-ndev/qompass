@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../../../context/Context";
 
 export default function PaymentSummary() {
+  const { paymentsummaryPopup, setPaymentsummaryPopup } = useContext(Context);
   return (
     <div className="w-full bg-[#f7fbff] rounded-[6px] border-[1px] border-[#d8d8d8]  ">
       <div className=" flex items-center justify- px-5 py-3.5">
@@ -9,7 +11,11 @@ export default function PaymentSummary() {
           <p className=" font-[600] flex   whitespace-nowrap">
             Total Weight 284kg
           </p>
-          <button>
+          <button
+            onClick={() => {
+              setPaymentsummaryPopup(!paymentsummaryPopup);
+            }}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -27,61 +33,62 @@ export default function PaymentSummary() {
           </button>
         </div>
       </div>
+      <div className={paymentsummaryPopup?'block':'hidden'}>
+        <div className="  flex flex-col gap border-t-[1px] ">
+          <div className=" flex items-center justify-between w-full border-t-[1px]">
+            <h1 className="py-2 pl-5 w-[50%] border-r-[1px]">
+              Total Shipment Count
+            </h1>
+            <h1 className="py-2 pl-5 w-[50%]">10.00</h1>
+          </div>
 
-      <div className="  flex flex-col gap border-t-[1px] ">
-        <div className=" flex items-center justify-between w-full border-t-[1px]">
-          <h1 className="py-2 pl-5 w-[50%] border-r-[1px]">
-            Total Shipment Count
-          </h1>
-          <h1 className="py-2 pl-5 w-[50%]">10.00</h1>
-        </div>
+          <div className=" flex items-center justify-between w-full border-t-[1px]">
+            <h1 className="py-2 pl-5 w-[50%] border-r-[1px]">
+              Base freight amount
+            </h1>
+            <h1 className="py-2 pl-5 w-[50%]">10.00</h1>
+          </div>
 
-        <div className=" flex items-center justify-between w-full border-t-[1px]">
-          <h1 className="py-2 pl-5 w-[50%] border-r-[1px]">
-            Base freight amount
-          </h1>
-          <h1 className="py-2 pl-5 w-[50%]">10.00</h1>
-        </div>
+          <div className=" flex items-center justify-between w-full border-t-[1px]">
+            <h1 className="py-2 pl-5 w-[50%] border-r-[1px]">
+              Accessorial freight amount
+            </h1>
+            <h1 className="py-2 pl-5 w-[50%]">546kg</h1>
+          </div>
 
-        <div className=" flex items-center justify-between w-full border-t-[1px]">
-          <h1 className="py-2 pl-5 w-[50%] border-r-[1px]">
-            Accessorial freight amount
-          </h1>
-          <h1 className="py-2 pl-5 w-[50%]">546kg</h1>
-        </div>
+          <div className=" flex items-center justify-between w-full border-t-[1px]">
+            <h1 className="py-2 pl-5 w-[50%] border-r-[1px]">Docket Charge</h1>
+            <h1 className="py-2 pl-5 w-[50%]">Jh # 2,016.00</h1>
+          </div>
 
-        <div className=" flex items-center justify-between w-full border-t-[1px]">
-          <h1 className="py-2 pl-5 w-[50%] border-r-[1px]">Docket Charge</h1>
-          <h1 className="py-2 pl-5 w-[50%]">Jh # 2,016.00</h1>
-        </div>
+          <div className=" flex items-center justify-between w-full border-t-[1px]">
+            <h1 className="py-2 pl-5 w-[50%] border-r-[1px]">
+              Stationary Charge
+            </h1>
+            <h1 className="py-2 pl-5 w-[50%]">₹ 50.00</h1>
+          </div>
 
-        <div className=" flex items-center justify-between w-full border-t-[1px]">
-          <h1 className="py-2 pl-5 w-[50%] border-r-[1px]">
-            Stationary Charge
-          </h1>
-          <h1 className="py-2 pl-5 w-[50%]">₹ 50.00</h1>
-        </div>
+          <div className=" flex items-center justify-between w-full border-t-[1px]">
+            <h1 className="py-2 pl-5 w-[50%] border-r-[1px]">
+              Handling Charge(Per Box)
+            </h1>
+            <h1 className="py-2 pl-5 w-[50%]">₹ 500.00</h1>
+          </div>
 
-        <div className=" flex items-center justify-between w-full border-t-[1px]">
-          <h1 className="py-2 pl-5 w-[50%] border-r-[1px]">
-            Handling Charge(Per Box)
-          </h1>
-          <h1 className="py-2 pl-5 w-[50%]">₹ 500.00</h1>
-        </div>
+          <div className=" flex items-center justify-between w-full border-t-[1px]">
+            <h1 className="py-2 pl-5 w-[50%] border-r-[1px]">CGST 8%</h1>
+            <h1 className="py-2 pl-5 w-[50%]">₹ 200.00</h1>
+          </div>
 
-        <div className=" flex items-center justify-between w-full border-t-[1px]">
-          <h1 className="py-2 pl-5 w-[50%] border-r-[1px]">CGST 8%</h1>
-          <h1 className="py-2 pl-5 w-[50%]">₹ 200.00</h1>
-        </div>
+          <div className=" flex items-center justify-between w-full border-t-[1px]">
+            <h1 className="py-2 pl-5 w-[50%] border-r-[1px]">SGST 8%</h1>
+            <h1 className="py-2 pl-5 w-[50%]">₹ 200.00</h1>
+          </div>
 
-        <div className=" flex items-center justify-between w-full border-t-[1px]">
-          <h1 className="py-2 pl-5 w-[50%] border-r-[1px]">SGST 8%</h1>
-          <h1 className="py-2 pl-5 w-[50%]">₹ 200.00</h1>
-        </div>
-
-        <div className=" flex items-center justify-between w-full border-t-[1px]">
-          <h1 className="py-2 pl-5 w-[50%] border-r-[1px]">IGST 8%</h1>
-          <h1 className="py-2 pl-5 w-[50%]">₹ 00.00</h1>
+          <div className=" flex items-center justify-between w-full border-t-[1px]">
+            <h1 className="py-2 pl-5 w-[50%] border-r-[1px]">IGST 8%</h1>
+            <h1 className="py-2 pl-5 w-[50%]">₹ 00.00</h1>
+          </div>
         </div>
       </div>
     </div>

@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../../../context/Context";
 
 export default function OrderSummary() {
+  const {
+    pickupPopup,
+    setPickupPopup,
+    contactPopup,
+    setContactPopup,
+    ordersummaryPopup,
+    setOrdersummaryPopup,
+  } = useContext(Context);
+
   return (
     <div className="w-full bg-[#f7fbff] rounded-[6px] border-[1px] border-[#d8d8d8]  ">
       <div className="flex items-center justify- px-5 py-3.5 ">
@@ -9,7 +19,9 @@ export default function OrderSummary() {
           <p className=" font-[600] flex   whitespace-nowrap">
             Total Distance 56Kms
           </p>
-          <button>
+          <button onClick={()=>{
+            setOrdersummaryPopup(!ordersummaryPopup)
+          }}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -28,12 +40,20 @@ export default function OrderSummary() {
         </div>
       </div>
       <div
-      //  className="hidden"
+       className={ordersummaryPopup?"block":"hidden"}
       >
         <div className="py-3 flex flex-col gap-3 border-t-[1px] px-5">
           <div>
             <h3 className="text-[13px] py-1.5 font-[600] text-black">
-              Pickup Address <span className="text-primary">( Edit )</span>
+              Pickup Address{" "}
+              <span
+                className="text-primary cursor-pointer"
+                onClick={() => {
+                  setPickupPopup(true);
+                }}
+              >
+                ( Edit )
+              </span>
             </h3>
             <h3 className="text-[12.5px] font-[500]">
               Borgir St cea Police Station, Fort Negar, Fort Kochi, <br />
@@ -63,7 +83,15 @@ export default function OrderSummary() {
         <div className="py-3 flex flex-col gap-3 border-t-[1px] px-5">
           <div>
             <h3 className="text-[13px] py-1.5 font-[600] text-black">
-              Delivery Address <span className="text-primary">( Edit )</span>
+              Delivery Address{" "}
+              <span
+                onClick={() => {
+                  setContactPopup(true);
+                }}
+                className="text-primary cursor-pointer"
+              >
+                ( Edit )
+              </span>
             </h3>
             <h3 className="text-[12.5px] font-[500]">
               6/40 Mattanchery Cochin, Jew Town Rd, Ernamkulam <br />

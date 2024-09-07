@@ -8,6 +8,11 @@ const AppProvider = ({ children }) => {
   const [contactPopup, setContactPopup] = useState(false);
   const [ordersummaryPopup, setOrdersummaryPopup] = useState(false);
   const [paymentsummaryPopup, setPaymentsummaryPopup] = useState(false);
+  const [productCate, setProductCate] = useState(false);
+  const [loadCate, setLoadCate] = useState(false);
+  const [nextId, setNextId] = useState(1);
+
+  const [product, setProduct] = useState([{ category: "", type: "", qty: "" }]);
 
   return (
     <Context.Provider
@@ -20,6 +25,13 @@ const AppProvider = ({ children }) => {
         setOrdersummaryPopup,
         paymentsummaryPopup,
         setPaymentsummaryPopup,
+        productCate,
+        setProductCate,
+        loadCate,
+        setLoadCate,
+        product,
+        setProduct,
+        nextId, setNextId,
       }}
     >
       {children}
