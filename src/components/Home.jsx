@@ -18,12 +18,12 @@ export default function Home() {
 
   } = useContext(Context);
   return (
-    <div className="relative  w-full gap-4  flex px-10 my-5">
-      <div className="w-[70vw] gap-4  flex  flex-col">
+    <div className="relative  w-full gap-4  flex md:flex-row flex-col px-10 my-5">
+      <div className="md:w-[70vw] w-full gap-4  flex  flex-col">
         <OrderManage />
         <OrderOverview />
       </div>
-      <div className="w-[30vw] ">
+      <div className="md:w-[30vw] w-full ">
         <SidePanel />
       </div>
 

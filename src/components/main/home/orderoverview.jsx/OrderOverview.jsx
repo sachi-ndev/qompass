@@ -16,7 +16,6 @@ export default function OrderOverview() {
       const parsedProducts = JSON.parse(savedProducts);
       setStoredProducts(parsedProducts);
 
-      console.log(parsedProducts);
     }
   }, [addProduct]);
 

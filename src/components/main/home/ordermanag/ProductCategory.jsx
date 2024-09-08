@@ -10,7 +10,6 @@ import { Context } from "../../context/Context";
 export default function ProductCategory() {
   const { productCate, setProductCate,setLoadCate ,product, setProduct} = useContext(Context);
 
-console.log(product);
 
   return (
     <div
