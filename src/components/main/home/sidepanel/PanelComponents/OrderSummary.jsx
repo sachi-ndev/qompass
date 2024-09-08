@@ -19,7 +19,10 @@ export default function OrderSummary() {
           <p className=" font-[600] flex   whitespace-nowrap">
             Total Distance 56Kms
           </p>
-          <button onClick={()=>{
+          <button 
+          className={ordersummaryPopup?'rotate-[180deg] transition-all duration-300':'rotate-[0deg] transition-all duration-300'}
+          onClick={()=>{
+            
             setOrdersummaryPopup(!ordersummaryPopup)
           }}>
             <svg

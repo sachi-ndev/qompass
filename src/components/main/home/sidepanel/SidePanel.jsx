@@ -1,23 +1,42 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import OrderSummary from "./PanelComponents/OrderSummary";
 import PaymentSummary from "./PanelComponents/PaymentSummary";
+import { Context } from "../../context/Context";
 
 export default function SidePanel() {
   const [checked, setChecked] = useState(false);
+  const { product ,storedProducts,conformorderPopup, setConformOrderPopup} = useContext(Context);
+
   return (
     <div className="flex flex-col gap-4 text-[14px]">
       <OrderSummary />
       <PaymentSummary />
-      <div className="w-full bg-[#f7fbff] rounded-[6px] border-[1px] border-[#d8d8d8] px-5 py-3.5 flex items-center justify-between">
-        <p className="w-[55%] font-[600] text-black">Total Weight</p>
-        <p className="w-[45%] text-[14px] font-[600]">118Kg</p>
+      <div
+        className={
+          product.category && product.type && product.qty ||storedProducts.length!=0
+            ? "w-full bg-[#f7fbff] text-black rounded-[6px] border-[1px] border-[#d8d8d8] px-5 py-3.5 flex items-center justify-between"
+            : "w-full bg-slate-200 text-slate-500 rounded-[6px] border-[1px] border-[#d8d8d8] px-5 py-3.5 flex items-center justify-between"
+        }
+      >
+        <p className="w-[55%] font-[600] ">Total Weight</p>
+        <p className="w-[45%] text-[14px] font-[600]">
+          {product.category && product.type && product.qty ||storedProducts.length!=0 ? "118Kg" : ""}
+        </p>
       </div>
-      <div className="w-full bg-[#e7f6fe] px-5 py-3.5 flex items-center justify-between">
-        <p className="w-[55%] font-[600] text-black">SUB TOTAL</p>
-        <p className="w-[45%] text-[14px] font-[600]">₹2967.00</p>
+      <div
+        className={
+          product.category && product.type && product.qty ||storedProducts.length!=0
+            ? "w-full bg-[#e7f6fe] text-black px-5 py-3.5 flex items-center justify-between"
+            : "w-full bg-slate-200  text-slate-500 px-5 py-3.5 flex items-center justify-between"
+        }
+      >
+        <p className="w-[55%] font-[600] ">SUB TOTAL</p>
+        <p className="w-[45%] text-[14px] font-[600]">
+          {product.category && product.type && product.qty ||storedProducts.length!=0 ? "₹2967.00" : ""}
+        </p>
       </div>
 
-      <div className="mt-4">
+      <div className={   product.category && product.type && product.qty ||storedProducts.length!=0?"mt-4":"mt-4 hidden"}>
         <div
           className="flex items-center gap-1 text-[14px] font-[550]"
           onClick={() => setChecked(!checked)}
@@ -53,7 +72,17 @@ export default function SidePanel() {
           the terms governing this transaction, including refund and
           cancellation polices
         </p>
-        <button className="px-16 rounded-[6px] py-3 bg-[#0d824c] text-[16px] font-[600] text-white mt-3">
+        <button 
+        onClick={()=>{
+          if(checked){
+            setConformOrderPopup(true)
+          }
+          else{
+            window.alert('Please agree T&C')
+          }
+          
+        }}
+        className="px-16 rounded-[6px] py-3 bg-[#0d824c] text-[16px] font-[600] text-white mt-3">
           Pay INR 2967.00
         </button>
       </div>
