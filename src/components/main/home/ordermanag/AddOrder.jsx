@@ -2,35 +2,44 @@ import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../context/Context";
 
 export default function AddOrder() {
-  const { product, setProduct, nextId, setNextId } = useContext(Context);
+  const {
+    product,
+    setProduct,
+    nextId,
+    setNextId,
+    addProduct,
+    setAddProduct,
+    orderPopup,
+    setOrderPopup,
+  } = useContext(Context);
 
-  const [addedProducts, setAddedProducts] = useState([]);
+  const [addedProducts, setAddedProducts] = useState(() => {
+    const savedProducts = localStorage.getItem("addedProducts");
+    return savedProducts ? JSON.parse(savedProducts) : [];
+  });
 
+  const generateRandomId = () => {
+    return crypto.randomUUID().slice(0, 5);
+  };
   const handleSave = () => {
-    // Define the new product with a unique ID
+    const prevAddedProducts =
+      JSON.parse(localStorage.getItem("addedProducts")) || [];
+
     const newProduct = {
-      id: `QOMP${nextId}`,
+      id: generateRandomId(),
       category: product.category,
       type: product.type,
       qty: product.qty,
     };
 
-    // Update the addedProducts state with the new product
-    setAddedProducts((prevAddedProducts) => [...prevAddedProducts, newProduct]);
+    const updatedProducts = [...prevAddedProducts, newProduct];
 
-    setNextId(nextId + 1);
+    setAddedProducts(updatedProducts);
+    localStorage.setItem("addedProducts", JSON.stringify(updatedProducts));
 
-    // Save addedProducts to localStorage
-    localStorage.setItem(
-      "addedProducts",
-      JSON.stringify([...addedProducts, newProduct])
-    );
-
-    // Clear the product state
     setProduct([{ category: "", type: "", qty: "" }]);
+    setAddProduct(!addProduct);
   };
-
-  console.log(addedProducts);
 
   return (
     <div className="bg-[#f4f9fc] px-3 py-5 rounded-[6px] flex md:flex-row flex-col  md:items-center text-[13px] font-[500]">
@@ -116,6 +125,7 @@ export default function AddOrder() {
         <button
           onClick={() => {
             if (product.category && product.type && product.qty) {
+              setOrderPopup(true);
               handleSave();
             }
           }}

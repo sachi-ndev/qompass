@@ -32,7 +32,7 @@ console.log(product);
           <input
             type="text"
             className="bg-white px-3 py-2 md:min-w-[230px] outline-none"
-            value={product.category}
+            value={product.category?product.category:''}
           />
 
           <button

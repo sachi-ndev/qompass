@@ -4,12 +4,14 @@ import { Context } from "../../context/Context";
 export default function PickupDetails() {
   const [checked, setChecked] = useState(false);
   const { pickupPopup, setPickupPopup } = useContext(Context);
- 
-  
+
   const pickupPopupRef = useRef(null);
 
   const handleClickOutside = (event) => {
-    if (pickupPopupRef.current && !pickupPopupRef.current.contains(event.target)) {
+    if (
+      pickupPopupRef.current &&
+      !pickupPopupRef.current.contains(event.target)
+    ) {
       setPickupPopup(false);
     }
   };
@@ -22,18 +24,21 @@ export default function PickupDetails() {
     };
   }, []);
 
-  
-
   return (
     <div className="w-screen h-screen items-center flex justify-end  pr-4   bg-primary/20">
-      <div ref={pickupPopupRef} className="flex flex-col h-fit w-[50%] bg-white rounded-[16px] overflow-hidden">
+      <div
+        ref={pickupPopupRef}
+        className="flex flex-col h-fit w-[50%] bg-white rounded-[16px] overflow-hidden"
+      >
         <div className=" flex h-fit px-5 py-3  w-full font-[600] border-b-[1px] border-slate-200 justify-between">
           <h1>Pickup Details</h1>
           <button
-          onClick={()=>{
-            setPickupPopup(false)
-          }}
-          >X</button>
+            onClick={() => {
+              setPickupPopup(false);
+            }}
+          >
+            X
+          </button>
         </div>
         <div className="flex py-2 border-b-[1px] border-slate-200 text-[12px]">
           <div className="px-5 py-2">
@@ -177,48 +182,52 @@ export default function PickupDetails() {
         </div>
 
         <div className="p-5 bg-primary/10 flex items-center">
-        <div>
-
-  
-          <div
-            className="flex items-center select-none gap-3 text-[14px] font-[550]"
-            onClick={() => setChecked(!checked)}
-          >
+          <div>
             <div
-              className={
-                checked
-                  ? "w-5 h-5 border-[2px] rounded-[4px] flex items-center justify-center bg-primary  border-primary"
-                  : "w-5 h-5 border-[2px] rounded-[4px] flex items-center justify-center bg-[#fff] border-[#D0D5DD]"
-              }
+              className="flex items-center select-none gap-3 text-[14px] font-[550]"
+              onClick={() => setChecked(!checked)}
             >
-              <svg
-                className={checked ? "block" : "hidden"}
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 12 13"
-                fill="none"
+              <div
+                className={
+                  checked
+                    ? "w-5 h-5 border-[2px] rounded-[4px] flex items-center justify-center bg-primary  border-primary"
+                    : "w-5 h-5 border-[2px] rounded-[4px] flex items-center justify-center bg-[#fff] border-[#D0D5DD]"
+                }
               >
-                <path
-                  d="M10 3.5L4.5 9L2 6.5"
-                  stroke="white"
-                  strokeWidth="1.6666"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+                <svg
+                  className={checked ? "block" : "hidden"}
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 12 13"
+                  fill="none"
+                >
+                  <path
+                    d="M10 3.5L4.5 9L2 6.5"
+                    stroke="white"
+                    strokeWidth="1.6666"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </div>
+              Privacy Policy
             </div>
-            Privacy Policy
+
+            <p className="w-[80%] text-[12px] mt-2">
+              You acknowledge that you have read and understood our Privacy
+              Policy.outlining how we collect, use, and protect your personal
+              information,
+            </p>
           </div>
-
-          <p className="w-[80%] text-[12px] mt-2">
-            You acknowledge that you have read and understood our Privacy
-            Policy.outlining how we collect, use, and protect your personal
-            information,
-          </p>
-        </div>
-        <button className="px-8 rounded-[6px] py-2 bg-[#0d824c] text-[16px] font-[600] text-white mt-3 whitespace-nowrap">Add Details</button>
-
+          <button
+            onClick={() => {
+              setPickupPopup(false);
+            }}
+            className="px-8 rounded-[6px] py-2 bg-[#0d824c] text-[16px] font-[600] text-white mt-3 whitespace-nowrap"
+          >
+            Add Details
+          </button>
         </div>
       </div>
     </div>

@@ -192,7 +192,7 @@ export default function ContactDetails() {
               <input
                 type="text"
                 className="border-[1px] border-slate-200  outline-none rounded-[6px] px-3 py-1 mt-1"
-              value='Kochi'
+                value="Kochi"
               />
             </div>
           </div>
@@ -237,7 +237,12 @@ export default function ContactDetails() {
               information,
             </p>
           </div>
-          <button className="px-8 rounded-[6px] py-2 bg-[#0d824c] text-[16px] font-[600] text-white mt-3 whitespace-nowrap">
+          <button
+            onClick={() => {
+              setContactPopup(false);
+            }}
+            className="px-8 rounded-[6px] py-2 bg-[#0d824c] text-[16px] font-[600] text-white mt-3 whitespace-nowrap"
+          >
             Add Details
           </button>
         </div>

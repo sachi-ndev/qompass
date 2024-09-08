@@ -29,7 +29,8 @@ export default function OrderType() {
             <input
               type="text"
               className="px-3 py-2 w-[50%] border-r-[1px]  border-[#d4d4d4] h-full min-h-[1.6lh] outline-none"
-              value={product.type}
+           
+              value={product.type?product.type:''}
             />
             <input
               type="text"
