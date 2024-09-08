@@ -312,7 +312,7 @@ export default function OrderOverview() {
             <p className="px-3 shrink-0 w-full max-w-[5%] whitespace-nowrap">
               {index + 1 + (currentPage - 1) * itemsPerPage}
             </p>
-            <p className="px-2 shrink-0 w-full max-w-[9%] whitespace-nowrap">
+            <p className=" uppercase px-2 shrink-0 w-full max-w-[9%] whitespace-nowrap">
               <div className="border-[1px] rounded-[2px] border-[#afafaf] px-3 py-1">
                 {products.id}
               </div>
