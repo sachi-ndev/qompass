@@ -15,7 +15,6 @@ const AppProvider = ({ children }) => {
   const [nextId, setNextId] = useState(1);
   const [addProduct, setAddProduct] = useState(false);
   const [storedProducts, setStoredProducts] = useState([]);
-
   const [product, setProduct] = useState([{ category: "", type: "", qty: "" }]);
 
   return (
